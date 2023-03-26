@@ -1,7 +1,15 @@
 {{#if resume.work.length}}
+{{#if resume.meta.properties.theme.skyoverflow.work.disabled}}{{else}}
 <section class="section">
   <header>
-    <h2 class='section-title'>{{#if resume.localization.work.title}}{{resume.localization.work.title}}{{else}}Work Experience{{/if}} <span class="item-count">({{resume.work.length}})</span></h2>
+    <h2 class='section-title'>
+      {{#if resume.meta.properties.theme.skyoverflow.work.title}}
+        {{resume.meta.properties.theme.skyoverflow.work.title}}
+      {{else}}
+        Work Experience
+      {{/if}}
+      <span class="item-count">({{resume.work.length}})</span>
+    </h2>
   </header>
 
   <section id="work">
@@ -64,4 +72,5 @@
     {{/each}}
   </section>
 </section>
+{{/if}}
 {{/if}}

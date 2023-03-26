@@ -21,9 +21,10 @@ Handlebars.registerHelper('toLowerCase', toLowerCase);
 Handlebars.registerHelper('spaceToDash', spaceToDash);
 
 function render(resume) {
-  if (resume.offer != null && resume.offer.highlights != null) {
+  if (resume.meta.properties != null && resume.meta.properties.theme.skyoverflow != null &&
+      resume.meta.properties.theme.skyoverflow.highlighter != null) {
     var resumeString = JSON.stringify(resume);
-    resume.offer.highlights.forEach(keyword =>
+    resume.meta.properties.theme.skyoverflow.highlighter.forEach(keyword =>
       resumeString = resumeString.replaceAll(new RegExp(keyword, "ig"), function replacer(match, offset, string, groups) {
         return "==" + match + "==";
       }));

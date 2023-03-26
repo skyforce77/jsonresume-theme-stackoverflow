@@ -1,7 +1,14 @@
 {{#if resume.interests.length}}
+{{#if resume.meta.properties.theme.skyoverflow.interests.disabled}}{{else}}
 <section class="section">
   <header>
-    <h2 class='section-title' class='section-title'>Interests</h2>
+    <h2 class='section-title' class='section-title'>
+      {{#if resume.meta.properties.theme.skyoverflow.interests.title}}
+        {{resume.meta.properties.theme.skyoverflow.interests.title}}
+      {{else}}
+        Interests
+      {{/if}}
+    </h2>
   </header>
   <section id="interests">
     {{#each resume.interests}}
@@ -25,4 +32,5 @@
     {{/each}}
   </section>
 </section>
+{{/if}}
 {{/if}}

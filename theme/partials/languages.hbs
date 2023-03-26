@@ -1,7 +1,14 @@
 {{#if resume.languages.length}}
+{{#if resume.meta.properties.theme.skyoverflow.languages.disabled}}{{else}}
 <section class="section">
   <header>
-    <h2 class='section-title'>{{#if resume.localization.languages.title}}{{resume.localization.languages.title}}{{else}}Languages{{/if}}</h2>
+    <h2 class='section-title'>
+      {{#if resume.localization.languages.title}}
+        {{resume.localization.languages.title}}
+      {{else}}
+        Languages
+      {{/if}}
+    </h2>
   </header>
   <section id="languages">
     {{#each resume.languages}}
@@ -27,4 +34,5 @@
     {{/each}}
   </section>
 </section>
+{{/if}}
 {{/if}}

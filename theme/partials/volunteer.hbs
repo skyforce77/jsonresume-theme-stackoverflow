@@ -1,7 +1,14 @@
 {{#if resume.volunteer.length}}
+{{#if resume.meta.properties.theme.skyoverflow.volunteer.disabled}}{{else}}
 <section class="section">
   <header>
-    <h2 class='section-title'>{{#if resume.localization.volunteer.title}}{{resume.localization.volunteer.title}}{{else}}Volunteer{{/if}}</h2>
+    <h2 class='section-title'>
+      {{#if resume.meta.properties.theme.skyoverflow.volunteer.title}}
+        {{resume.meta.properties.theme.skyoverflow.volunteer.title}}
+      {{else}}
+        Volunteer
+      {{/if}}
+    </h2>
   </header>
   <section id="volunteer">
     {{#each resume.volunteer}}
@@ -89,4 +96,5 @@
     {{/each}}
   </section>
 </section>
+{{/if}}
 {{/if}}
