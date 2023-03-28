@@ -21,6 +21,16 @@ Handlebars.registerHelper('toLowerCase', toLowerCase);
 Handlebars.registerHelper('spaceToDash', spaceToDash);
 
 function render(resume) {
+  if (resume.meta.properties != null && resume.meta.properties.theme.skyoverflow != null &&
+      resume.meta.properties.theme.skyoverflow.highlighter != null) {
+    var resumeString = JSON.stringify(resume);
+    resume.meta.properties.theme.skyoverflow.highlighter.forEach(keyword =>
+      resumeString = resumeString.replaceAll(new RegExp(keyword, "ig"), function replacer(match, offset, string, groups) {
+        return "==" + match + "==";
+      }));
+    resume = JSON.parse(resumeString);
+  }
+
   const css = readFileSync(`${__dirname}/style.css`, 'utf-8');
   const tpl = readFileSync(`${__dirname}/resume.hbs`, 'utf-8');
   const partialsDir = join(__dirname, 'theme/partials');
@@ -35,7 +45,7 @@ function render(resume) {
     Handlebars.registerPartial(name, template);
   });
 
-  return Handlebars.compile(tpl)({
+  return Handlebars.compile(tpl, {noEscape: true})({
     css,
     resume,
   });
