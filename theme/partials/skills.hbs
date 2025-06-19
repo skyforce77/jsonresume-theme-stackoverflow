@@ -1,7 +1,14 @@
 {{#if resume.skills.length}}
+{{#if resume.meta.properties.theme.skyoverflow.skills.disabled}}{{else}}
 <section class="section">
 	<header>
-		<h2 class='section-title'>Skills</h2>
+		<h2 class='section-title'>
+			{{#if resume.meta.properties.theme.skyoverflow.skills.title}}
+				{{resume.meta.properties.theme.skyoverflow.skills.title}}
+			{{else}}
+				Skills
+			{{/if}}
+		</h2>
 	</header>
 	<section id="skills">
 		{{#each resume.skills}}
@@ -31,4 +38,5 @@
 		{{/each}}
 	</section>
 </section>
+{{/if}}
 {{/if}}
